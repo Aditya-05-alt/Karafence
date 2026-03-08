@@ -15,7 +15,7 @@
                     <img alt="Karafence Academy Logo" class="object-contain w-full h-full rounded-full" src="{{ asset('/hero.jpeg') }}"/> </div>
             </div>
             <h1 class="text-5xl md:text-7xl font-display text-secondary dark:text-white mb-2 tracking-tight">
-                KARAFENCE <span class="text-primary">ACADEMY</span>
+                KARAFENCE <span class="text-primary"> ACADEMY</span>
             </h1>
             <p class="text-3xl font-japanese text-secondary dark:text-gray-300 mb-8 opacity-90">鎮 力 道</p>
             <p class="max-w-2xl mx-auto text-xl text-gray-700 dark:text-gray-300 mb-10 leading-relaxed font-light">
