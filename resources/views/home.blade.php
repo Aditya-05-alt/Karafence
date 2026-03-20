@@ -140,14 +140,14 @@
                         <div class="flex items-start space-x-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors border-l-4 border-primary">
                             <span class="material-icons text-primary text-3xl">school</span>
                             <div>
-                                <h4 class="font-bold text-xl mb-1">Beginner Classes</h4>
+                                <h4 class="font-bold text-xl mb-1">Jatra Suru Sangha</h4>
                                 <p class="text-gray-400 text-sm">Mon & Wed: 5:00 PM - 6:30 PM</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors border-l-4 border-primary">
                             <span class="material-icons text-primary text-3xl">sports_martial_arts</span>
                             <div>
-                                <h4 class="font-bold text-xl mb-1">Advanced Kumite</h4>
+                                <h4 class="font-bold text-xl mb-1">Arunachal Sangha</h4>
                                 <p class="text-gray-400 text-sm">Tue & Thu: 7:00 PM - 9:00 PM</p>
                             </div>
                         </div>
