@@ -29,3 +29,4 @@ Route::get('/dashboard', [GalleryController::class, 'dashboard'])->name('admin.d
 // Upload & Delete Media Logic
 Route::post('/sensei/media/upload', [GalleryController::class, 'storeMedia'])->name('admin.media.store');
 Route::delete('/sensei/media/{id}', [GalleryController::class, 'deleteMedia'])->name('admin.media.destroy');
+Route::delete('/sensei/album/{album}', [GalleryController::class, 'deleteAlbum'])->where('album', '.+')->name('admin.album.destroy');

@@ -41,11 +41,24 @@
         <div class="mt-8 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
             @forelse($videos as $video)
                 <div class="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition-all hover:shadow-xl dark:border-slate-800 dark:bg-card-dark">
-                    <div class="relative aspect-video overflow-hidden bg-black">
-                        <video class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" preload="metadata" controls>
-                            <source src="{{ asset('storage/' . $video->file_path) }}" type="video/mp4">
-                        </video>
-                    </div>
+                    <button type="button"
+                        class="relative aspect-video overflow-hidden bg-black w-full cursor-pointer"
+                        onclick="openVideoViewer(@json($video->media_url), @json($video->title ?? 'Untitled Video'))">
+                        @if($video->thumbnail_url)
+                            <img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                alt="{{ $video->title }}"
+                                src="{{ $video->thumbnail_url }}"/>
+                        @else
+                            <video class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none" preload="metadata" muted>
+                                <source src="{{ $video->media_url }}#t=0.1" type="video/mp4">
+                            </video>
+                        @endif
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors group-hover:bg-black/20">
+                            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/90 text-white shadow-lg transition-transform group-hover:scale-110">
+                                <span class="material-icons text-4xl pl-1">play_arrow</span>
+                            </div>
+                        </div>
+                    </button>
                     <div class="flex flex-1 flex-col p-4">
                         <div class="mb-2 flex items-center justify-between">
                             <span class="rounded bg-primary/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">Training</span>
@@ -71,5 +84,46 @@
             {{ $videos->links() }}
         </div>
     </div>
+
+    <div id="video-viewer" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 p-4 backdrop-blur-sm" onclick="closeVideoViewer(event)">
+        <button type="button" class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors z-10" onclick="closeVideoViewer()">
+            <span class="material-icons text-4xl">close</span>
+        </button>
+        <div class="max-w-5xl w-full" onclick="event.stopPropagation()">
+            <video id="video-viewer-player" controls class="w-full max-h-[80vh] rounded-lg bg-black mx-auto">
+                <source id="video-viewer-source" src="" type="video/mp4">
+            </video>
+            <p id="video-viewer-title" class="mt-4 text-center text-white text-lg font-semibold"></p>
+        </div>
+    </div>
 </main>
+
+<script>
+    function openVideoViewer(src, title) {
+        var player = document.getElementById('video-viewer-player');
+        var source = document.getElementById('video-viewer-source');
+        source.src = src;
+        player.load();
+        document.getElementById('video-viewer-title').textContent = title;
+        document.getElementById('video-viewer').classList.remove('hidden');
+        document.getElementById('video-viewer').classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        player.play();
+    }
+
+    function closeVideoViewer(event) {
+        if (event && event.target !== event.currentTarget) return;
+        var player = document.getElementById('video-viewer-player');
+        player.pause();
+        document.getElementById('video-viewer-source').src = '';
+        player.load();
+        document.getElementById('video-viewer').classList.add('hidden');
+        document.getElementById('video-viewer').classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVideoViewer();
+    });
+</script>
 @endsection

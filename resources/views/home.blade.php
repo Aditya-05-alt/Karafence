@@ -43,7 +43,7 @@
             <div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl ring-4 ring-gray-100 dark:ring-gray-800 bg-black group">
                 @if($featuredVideo)
                     <video controls class="w-full h-full object-cover">
-                        <source src="{{ asset('storage/' . $featuredVideo->file_path) }}" type="video/mp4">
+                        <source src="{{ $featuredVideo->media_url }}" type="video/mp4">
                     </video>
                 @else
                     <img alt="Dojo training session group class" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApuXpc5iu0WO_3gId7jxq3hOzobmkaRfsXNP36pQPZImj9qoAHA6-0WWnXfAkkuoje60kzvrpHcSIXYz-3gF-lVmIOe_Q4aUkWwr6j5Y3LInyDG-2yxJZk8kvepFuoex2gDMaPniGM9v60JXPfhB1jTNxQ5LMVtnFNS2w6xHcyNzbh9RU8KZhEF0W0YB2k9orkN-YkOoRWmYwRZUPDisvpcaZZHoCCwJChXygitQSS8V8eiChytRbFjj7zJMVHbP6lAAIao8wFI9rt"/>
@@ -90,7 +90,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[200px]">
                 <div class="col-span-1 md:col-span-2 row-span-2 relative group overflow-hidden rounded-lg">
                     @if($featuredImage)
-                        <img alt="{{ $featuredImage->title ?? 'Featured Dojo Image' }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="{{ asset('storage/' . $featuredImage->file_path) }}"/>
+                        <img alt="{{ $featuredImage->title ?? 'Featured Dojo Image' }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="{{ $featuredImage->media_url }}"/>
                     @else
                         <img alt="Placeholder" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIax70COEU7fvZEJR0QBI1fY7jUEUVKbuTHcFPbRHv8plnngi---B1Ae9S-d2no4xMWKyAkVYZHjv7qp2P_vfWw_uQ67ib4nYJlxPwz3pJkajADPy5MbeWLksX_U2X2OqVtDkAL25e6n0a2eaoPECLbvb4AOVlrlqlvHiq_4GYEvnkFloixUNBRS6_XAHwBMdnnEImYziAhmd1YkRpo_85UXdEWuEiGz2Ld5fn8IKSZEIHZpCcRIPtK2rCEk_ynJ9HSoNDu2RJV6ew"/>
                     @endif

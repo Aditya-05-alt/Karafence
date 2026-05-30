@@ -10,9 +10,9 @@
     </header>
 
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             
-            <div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-lg p-8 border-t-4 border-primary border border-transparent dark:border-slate-800">
+            <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-lg p-8 border-t-4 border-primary border border-transparent dark:border-slate-800 w-full">
                 <h2 class="text-2xl font-display font-bold text-secondary dark:text-white mb-6 flex items-center">
                     <span class="material-icons text-primary mr-2">mail_outline</span> Send us a Message
                 </h2>
@@ -55,7 +55,7 @@
             </div>
 
             <div class="space-y-8">
-                <div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-lg p-8 border-l-4 border-secondary dark:border-primary border-y border-r border-transparent dark:border-y-slate-800 dark:border-r-slate-800">
+                <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-lg p-8 border-l-4 border-secondary dark:border-primary border-y border-r border-transparent dark:border-y-slate-800 dark:border-r-slate-800">
                     <h2 class="text-2xl font-display font-bold text-secondary dark:text-white mb-6">Dojo Information</h2>
                     <div class="space-y-6">
                         <div class="flex items-start">
@@ -96,7 +96,7 @@
                     </div>
                 </div>
 
-                <div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-lg p-8 relative overflow-hidden border border-transparent dark:border-slate-800">
+                <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-lg p-8 relative overflow-hidden border border-transparent dark:border-slate-800">
                     <div class="absolute top-0 right-0 -mt-4 -mr-4 text-primary opacity-10">
                         <span class="material-icons" style="font-size: 150px;">schedule</span>
                     </div>
@@ -121,7 +121,7 @@
                     </ul>
                 </div>
 
-                <div class="rounded-xl shadow-lg overflow-hidden h-64 bg-slate-200 dark:bg-surface-dark relative group border border-transparent dark:border-slate-800">
+                <div class="rounded-xl shadow-lg overflow-hidden h-64 bg-slate-200 dark:bg-card-dark relative group border border-transparent dark:border-slate-800">
                     <iframe allowfullscreen="" class="group-hover:filter-none transition-all duration-500" height="100%" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153169!3d-37.81732344202115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sus!4v1620022222222!5m2!1sen!2sus" style="border:0; filter: grayscale(1) contrast(1.2) opacity(0.8);" title="Dojo Location Map" width="100%"></iframe>
                     <div class="absolute bottom-4 right-4 bg-white dark:bg-background-dark px-3 py-1 text-xs font-bold rounded shadow-md text-slate-800 dark:text-white pointer-events-none border dark:border-slate-700">
                         Karafence Academy HQ
@@ -134,15 +134,15 @@
             <h3 class="text-2xl font-display font-bold text-secondary dark:text-white mb-4">Frequently Asked Questions</h3>
             <p class="text-slate-600 dark:text-slate-400 mb-8">Have a quick question? Check our FAQ before sending a message.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                <div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800 hover:border-primary dark:hover:border-primary transition-colors cursor-pointer group">
+                <div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800 hover:border-primary dark:hover:border-primary transition-colors cursor-pointer group">
                     <h4 class="font-bold text-secondary dark:text-white mb-2 group-hover:text-primary transition-colors">What age can my child start?</h4>
                     <p class="text-sm text-slate-500 dark:text-slate-400">We accept students as young as 4 years old in our Little Ninjas program.</p>
                 </div>
-                <div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800 hover:border-primary dark:hover:border-primary transition-colors cursor-pointer group">
+                <div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800 hover:border-primary dark:hover:border-primary transition-colors cursor-pointer group">
                     <h4 class="font-bold text-secondary dark:text-white mb-2 group-hover:text-primary transition-colors">Do I need a uniform?</h4>
                     <p class="text-sm text-slate-500 dark:text-slate-400">For your first trial class, comfortable workout clothes are perfectly fine.</p>
                 </div>
-                <div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800 hover:border-primary dark:hover:border-primary transition-colors cursor-pointer group">
+                <div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800 hover:border-primary dark:hover:border-primary transition-colors cursor-pointer group">
                     <h4 class="font-bold text-secondary dark:text-white mb-2 group-hover:text-primary transition-colors">Is there a contract?</h4>
                     <p class="text-sm text-slate-500 dark:text-slate-400">We offer flexible month-to-month memberships as well as term commitments.</p>
                 </div>
