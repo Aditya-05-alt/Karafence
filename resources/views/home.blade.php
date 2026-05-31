@@ -156,21 +156,44 @@
                 
                 <div class="bg-white dark:bg-card-dark text-secondary dark:text-gray-200 p-8 rounded-xl shadow-2xl">
                     <h3 class="text-2xl font-display mb-6 text-center text-primary uppercase">Start Your Journey</h3>
-                    <form class="space-y-4" action="#" method="POST">
+
+                    @if(session('success'))
+                        <div class="mb-4 rounded-lg border border-green-400 bg-green-50 px-4 py-3 text-green-800 dark:bg-green-900/20 dark:border-green-700 dark:text-green-300 text-sm">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if(session('error'))
+                        <div class="mb-4 rounded-lg border border-red-400 bg-red-50 px-4 py-3 text-red-800 dark:bg-red-900/20 dark:border-red-700 dark:text-red-300 text-sm">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                    @if($errors->any())
+                        <div class="mb-4 rounded-lg border border-red-400 bg-red-50 px-4 py-3 text-red-800 dark:bg-red-900/20 dark:border-red-700 dark:text-red-300 text-sm">
+                            <ul class="list-disc list-inside space-y-1">
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form class="space-y-4" action="{{ route('trial.submit') }}" method="POST">
                         @csrf
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-bold mb-2">First Name</label>
-                                <input class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary" type="text" name="first_name"/>
+                                <input class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary" type="text" name="first_name" value="{{ old('first_name') }}" required/>
                             </div>
                             <div>
                                 <label class="block text-sm font-bold mb-2">Last Name</label>
-                                <input class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary" type="text" name="last_name"/>
+                                <input class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary" type="text" name="last_name" value="{{ old('last_name') }}" required/>
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-bold mb-2">Email Address</label>
-                            <input class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary" type="email" name="email"/>
+                            <input class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary" type="email" name="email" value="{{ old('email') }}" required/>
                         </div>
                         <button class="w-full bg-primary hover:bg-orange-600 text-white font-bold py-3 px-4 rounded shadow-md transform active:scale-95 transition-all mt-4" type="submit">
                             Book Free Trial

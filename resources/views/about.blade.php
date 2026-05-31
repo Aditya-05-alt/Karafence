@@ -34,7 +34,7 @@
                     </p>
                 </div>
                 <div class="relative h-96 rounded-xl overflow-hidden shadow-2xl group">
-                    <img alt="Students practicing karate" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAThqkQzSSX_AN8W6wRfuvtA0IuRt9d9p4pFBkWUnODegx863__GDdoef3UHZoEotWAgUrnKF5Wc6lU0tcr5XmTmHPvILJh27BgFluz98V2pW83rHAPhBnGv3hqSdU13uYnk2RpXCYHBJ_cEwaIZtm4dHUdd5Q3ntGW0tbljVAk2nAdQ5VxAaapawKEkKPEg6KIrc725bcr5IuF0R814wy3mQGnMGUxBPZpZzBkSOowixEnqwG97rWx85D3rk6WY-a7Yt-E8J6Oxhl1"/>
+                    <img alt="Students practicing karate at Karafence Academy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" src="{{ asset('images/our-mission.jpg') }}"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent flex items-end p-6">
                         <p class="text-white font-display text-xl tracking-wide">Focus. Discipline. Respect.</p>
                     </div>
@@ -73,7 +73,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     <div class="md:col-start-2 bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow border border-gray-100 dark:border-gray-700 group">
         <div class="h-80 overflow-hidden relative">
-            <img alt="Sensei Sarah" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5t0H87a9Pru80oaTnZpmKLXJvNq_EjqjCYgpP7UhAIOnXiLSLyVdIURMsf0RkX_zH3TFKKQDUzTeU1hmE1nGX4wHNa8mc2cTS70RdVnLoo--e4P8QUqGMzy2xqfvLGF6-mgr40y55bB40QpmIBLXqhpr8atHkS_Rdf7kysI3FKRE21t2jQ5d0X8VsdDrpjOunnVNRR5BmBttsshnMIy8lL15TKuGrzBMFWW8N1HJUT0H5YskuNAmigtFnRLKTpBnykIhMnrIW4hhZ"/>
+            <img alt="Sensei Animesh Mondal" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110" src="{{ asset('images/sensei-animesh-mondal.jpeg') }}"/>
             <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
                 <h3 class="text-white font-display text-2xl">Sensei Animesh Mondal</h3>
                 <p class="text-primary font-medium">Senior Instructor, 4th Dan</p>

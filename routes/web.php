@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\InquiryController;
 
 // ----------------------------------------------------------------------
 // Public Pages
@@ -11,6 +12,8 @@ use App\Http\Controllers\GalleryController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+Route::post('/contact', [InquiryController::class, 'storeContact'])->name('contact.submit');
+Route::post('/book-trial', [InquiryController::class, 'storeTrial'])->name('trial.submit');
 
 // ----------------------------------------------------------------------
 // Public Media Gallery

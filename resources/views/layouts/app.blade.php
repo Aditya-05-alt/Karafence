@@ -84,16 +84,27 @@
                     </a>
                 </div>
 
-                <div class="md:hidden flex items-center space-x-4">
+                <div class="md:hidden flex items-center space-x-2">
                     <button id="theme-toggle-mobile" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2 transition-colors">
                         <span id="theme-toggle-dark-icon-mobile" class="hidden material-icons">dark_mode</span>
                         <span id="theme-toggle-light-icon-mobile" class="hidden material-icons">light_mode</span>
                     </button>
 
-                    <button class="text-secondary dark:text-gray-200 hover:text-primary focus:outline-none">
-                        <span class="material-icons text-3xl">menu</span>
+                    <button id="mobile-menu-toggle" type="button" class="text-secondary dark:text-gray-200 hover:text-primary focus:outline-none p-2 rounded-lg" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <span id="mobile-menu-icon-open" class="material-icons text-3xl">menu</span>
+                        <span id="mobile-menu-icon-close" class="material-icons text-3xl hidden">close</span>
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden border-t border-primary/30 bg-background-light dark:bg-background-dark">
+            <div class="px-4 py-4 space-y-1">
+                <a class="block rounded-lg px-4 py-3 text-secondary dark:text-gray-200 hover:bg-primary/10 hover:text-primary font-bold uppercase tracking-wide transition-colors" href="{{ route('home') }}">Home</a>
+                <a class="block rounded-lg px-4 py-3 text-secondary dark:text-gray-200 hover:bg-primary/10 hover:text-primary font-bold uppercase tracking-wide transition-colors" href="{{ route('about') }}">About Us</a>
+                <a class="block rounded-lg px-4 py-3 text-secondary dark:text-gray-200 hover:bg-primary/10 hover:text-primary font-bold uppercase tracking-wide transition-colors" href="{{ route('gallery.images') }}">Gallery</a>
+                <a class="block rounded-lg px-4 py-3 text-secondary dark:text-gray-200 hover:bg-primary/10 hover:text-primary font-bold uppercase tracking-wide transition-colors" href="{{ route('contact') }}">Contact</a>
+                <a class="block mt-2 rounded-full bg-primary hover:bg-orange-600 text-white px-4 py-3 text-center font-bold uppercase text-sm tracking-wider shadow-md transition-colors" href="{{ route('contact') }}">Join Now</a>
             </div>
         </div>
     </nav>
@@ -104,38 +115,40 @@
 
     <footer class="bg-card-light dark:bg-card-dark border-t border-primary/30 pt-16 pb-8 transition-colors duration-300 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
-                <div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div class="lg:col-span-1">
                     <span class="font-display text-2xl tracking-wider text-secondary dark:text-white uppercase">Karafence</span>
                     <p class="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed">
                         Dedicated to preserving traditional martial arts values while adapting to modern self-defense needs. Join us to build character through effort.
                     </p>
-                    <div class="mt-6 flex space-x-4">
-                        <a class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-primary transition-colors" href="#"><span class="text-sm font-bold">FB</span></a>
-                        <a class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-primary transition-colors" href="#"><span class="text-sm font-bold">IG</span></a>
-                        <a class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-primary transition-colors" href="#"><span class="text-sm font-bold">YT</span></a>
-                    </div>
+                    @include('partials.social-links')
                 </div>
-                <div>
+                <div class="lg:col-span-1">
                     <h3 class="font-bold text-lg mb-4 text-secondary dark:text-white uppercase tracking-wide">Contact Us</h3>
                     <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <span class="material-icons text-primary mr-3">location_on</span>
-                            <span class="text-gray-600 dark:text-gray-400">123 Dojo Way, Black Belt City, CA 90210</span>
-                        </li>
                         <li class="flex items-center">
                             <span class="material-icons text-primary mr-3">phone</span>
-                            <span class="text-gray-600 dark:text-gray-400">(555) 123-4567</span>
+                            <a href="tel:{{ config('karafence.phone_link') }}" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">{{ config('karafence.phone') }}</a>
                         </li>
                         <li class="flex items-center">
                             <span class="material-icons text-primary mr-3">email</span>
-                            <span class="text-gray-600 dark:text-gray-400">sensei@karafence.com</span>
+                            <a href="mailto:{{ config('karafence.email') }}" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">{{ config('karafence.email') }}</a>
                         </li>
                     </ul>
                 </div>
-                <div class="h-48 rounded-lg overflow-hidden shadow-md border border-gray-200 dark:border-gray-700">
-                    <iframe allowfullscreen="" frameborder="0" height="100%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0636734183863!2d-122.41941548468165!3d37.77492927975974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sTwitter+HQ!5e0!3m2!1sen!2sus!4v1530644080128" style="border:0" width="100%"></iframe>
-                </div>
+                @foreach(config('karafence.locations') as $location)
+                    <div>
+                        <div class="h-44 rounded-lg overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 mb-3">
+                            @include('partials.map-embed', [
+                                'query' => $location['map_query'],
+                                'title' => $location['name'] . ' map',
+                            ])
+                        </div>
+                        <p class="font-bold text-sm text-secondary dark:text-white uppercase tracking-wide">{{ $location['name'] }}</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ $location['address'] }}</p>
+                        <p class="text-primary text-xs mt-1 font-medium">{{ $location['hours'] }}</p>
+                    </div>
+                @endforeach
             </div>
             <div class="border-t border-gray-300 dark:border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-500 dark:text-gray-500 text-sm">
@@ -148,8 +161,15 @@
     @stack('modals')
 
     @php
-        $whatsappNumber = preg_replace('/\D+/', '', config('services.whatsapp.number', ''));
-        $whatsappMessage = urlencode(config('services.whatsapp.message', ''));
+        $whatsappNumber = preg_replace('/\D+/', '', (string) (
+            config('karafence.whatsapp_number')
+            ?: config('services.whatsapp.number')
+            ?: env('WHATSAPP_NUMBER', '')
+        ));
+        $whatsappMessage = urlencode((string) (
+            config('karafence.whatsapp_message')
+            ?: config('services.whatsapp.message', '')
+        ));
         $whatsappUrl = $whatsappNumber ? 'https://wa.me/' . $whatsappNumber . ($whatsappMessage ? '?text=' . $whatsappMessage : '') : null;
     @endphp
 
@@ -201,6 +221,46 @@
                 }
             });
         });
+
+        (function () {
+            var menuToggle = document.getElementById('mobile-menu-toggle');
+            var mobileMenu = document.getElementById('mobile-menu');
+            var iconOpen = document.getElementById('mobile-menu-icon-open');
+            var iconClose = document.getElementById('mobile-menu-icon-close');
+
+            if (!menuToggle || !mobileMenu) return;
+
+            function setMenuOpen(isOpen) {
+                mobileMenu.classList.toggle('hidden', !isOpen);
+                iconOpen.classList.toggle('hidden', isOpen);
+                iconClose.classList.toggle('hidden', !isOpen);
+                menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            }
+
+            menuToggle.addEventListener('click', function () {
+                setMenuOpen(mobileMenu.classList.contains('hidden'));
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setMenuOpen(false);
+                });
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                    setMenuOpen(false);
+                }
+            });
+
+            window.addEventListener('resize', function () {
+                if (window.innerWidth >= 768) {
+                    setMenuOpen(false);
+                }
+            });
+        })();
     </script>
 </body>
 </html>
